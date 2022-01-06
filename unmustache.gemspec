@@ -1,22 +1,22 @@
 # frozen_string_literal: true
 
-require_relative "lib/unmustache/version"
+require_relative 'lib/unmustache/version'
 
 Gem::Specification.new do |spec|
-  spec.name = "unmustache"
+  spec.name = 'unmustache'
   spec.version = Unmustache::VERSION
-  spec.authors = ["Marc PEREZ"]
+  spec.authors = ['Marc PEREZ']
 
-  spec.summary      = "Unrenders Mustache templates"
-  spec.description  = "Extracts the variables from rendered Mustache templates"
+  spec.summary      = 'Unrenders Mustache templates'
+  spec.description  = 'Extracts the variables from rendered Mustache templates'
   spec.homepage     = 'https://rubygems.org/gems/unmustache'
-  spec.required_ruby_version = ">= 2.6.0"
-  spec.license      = 'MIT'
+  spec.required_ruby_version = '>= 2.6.0'
+  spec.license = 'MIT'
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/return-main/unmustache"
+  spec.metadata['homepage_uri'] = spec.homepage
+  spec.metadata['source_code_uri'] = 'https://github.com/return-main/unmustache'
   # spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
   # Specify which files should be added to the gem when it is released.
@@ -26,11 +26,14 @@ Gem::Specification.new do |spec|
       (f == __FILE__) || f.match(%r{\A(?:(?:test|spec|features)/|\.(?:git|travis|circleci)|appveyor)})
     end
   end
-  spec.bindir = "exe"
+  spec.bindir = 'exe'
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'logger'
 
+  spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'solargraph'
+  spec.add_development_dependency 'rspec'
 end
