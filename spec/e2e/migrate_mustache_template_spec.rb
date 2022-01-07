@@ -8,7 +8,8 @@ describe Unmustache do
   describe 'E2E' do
     it 'migrates an old config file to a new format' do
       # Get the variables from the old config file
-      config_v1_variables = described_class.unmustache(
+      unmustache = described_class.new
+      config_v1_variables = unmustache.unmustache(
         template_file: File.join(File.dirname(__FILE__), 'config_script_v1.sh.mustache'),
         rendered_template_file: File.join(File.dirname(__FILE__), 'input', 'generated_config_script_v1.sh')
       )

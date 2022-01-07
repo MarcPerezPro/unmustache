@@ -4,13 +4,24 @@ require 'unmustache'
 
 describe Unmustache do
   describe '#unmustache' do
-    it 'extracts the variables from a rendered Mustache template' do
-      template_contents = '{{ name }} {{ lastname }}'
-      rendered_template_contents = 'John Doe'
-      variables = described_class.unmustache(template_contents: template_contents,
+    it 'extracts escaped variables from a rendered Mustache template' do
+      unmustache = described_class.new
+      template_contents = '{{first_number}} {{sign}} {{second_number}}'
+      rendered_template_contents = '5 &gt; 2'
+      variables = unmustache.unmustache(template_contents: template_contents,
                                              rendered_template_contents: rendered_template_contents)
       expect(variables).to be_a(Hash)
-      expect(variables).to eq({ name: 'John', lastname: 'Doe' })
+      expect(variables).to eq({ first_number: '5', sign: '>', second_number: '2' })
+    end
+
+    it 'extracts unescaped variables from a rendered Mustache template' do
+      unmustache = described_class.new
+      template_contents = '{{{first_number}}} {{{sign}}} {{{second_number}}}'
+      rendered_template_contents = '5 > 2'
+      variables = unmustache.unmustache(template_contents: template_contents,
+                                             rendered_template_contents: rendered_template_contents)
+      expect(variables).to be_a(Hash)
+      expect(variables).to eq({ first_number: '5', sign: '>', second_number: '2' })
     end
   end
 end
