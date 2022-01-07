@@ -4,7 +4,7 @@ require 'unmustache'
 
 describe Unmustache do
   describe '#unmustache' do
-    it 'extracts escaped variables from a rendered Mustache template' do
+    it 'extracts escaped variables from a rendered Mustache template' do # rubocop:disable RSpec/ExampleLength
       unmustache = described_class.new
       template_contents = '{{first_number}} {{sign}} {{second_number}}'
       rendered_template_contents = '5 &gt; 2'
@@ -14,7 +14,7 @@ describe Unmustache do
       expect(variables).to eq({ first_number: '5', sign: '>', second_number: '2' })
     end
 
-    it 'extracts unescaped variables from a rendered Mustache template' do
+    it 'extracts unescaped variables from a rendered Mustache template' do # rubocop:disable RSpec/ExampleLength
       unmustache = described_class.new
       template_contents = '{{{first_number}}} {{{sign}}} {{{second_number}}}'
       rendered_template_contents = '5 > 2'

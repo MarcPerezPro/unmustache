@@ -2,7 +2,7 @@
 
 require_relative '../lib/unmustache/generate_regex'
 
-describe Unmustache do
+describe Unmustache do # rubocop:disable RSpec/FilePath
   describe '#generate_regex' do
     it 'generates a regex with {{ escaped_mustaches }}' do
       unmustache = described_class.new

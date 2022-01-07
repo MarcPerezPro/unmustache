@@ -4,9 +4,9 @@ require 'mustache'
 require 'unmustache'
 require_relative './config_script'
 
-describe Unmustache do
+describe Unmustache do # rubocop:disable RSpec/FilePath
   describe 'E2E' do
-    it 'migrates an old config file to a new format' do
+    it 'migrates an old config file to a new format' do # rubocop:disable RSpec/ExampleLength
       # Get the variables from the old config file
       unmustache = described_class.new
       config_v1_variables = unmustache.unmustache(

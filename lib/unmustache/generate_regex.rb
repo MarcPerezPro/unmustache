@@ -31,7 +31,7 @@ class Unmustache # rubocop:disable Style/Documentation
   # Generates a Regular Expression that can be used to extract the variables from a rendered Mustache template
   # @param [String] template_contents The contents of the Mustache template (not the rendered template)
   # @return [Regexp]
-  def generate_regex(template_contents)
+  def generate_regex(template_contents) # rubocop:disable Metrics/MethodLength
     # Find the {mustache} variables
     @escaped_variables = scan_escaped_variables(template_contents)
     @unescaped_variables = scan_unescaped_variables(template_contents)
