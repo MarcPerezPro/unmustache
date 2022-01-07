@@ -2,5 +2,8 @@ require:
   - rubocop-rake
   - rubocop-rspec
 
+RSpec/MultipleExpectations:
+  Enabled: false
+
 AllCops:
-    NewCops: enable
+  NewCops: enable

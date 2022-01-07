@@ -4,7 +4,8 @@ require_relative 'unmustache/version'
 require_relative 'unmustache/generate_regex'
 require_relative 'unmustache/extract_variables'
 
-# TODO: Comments
+# A class to extract variables from a rendered Mustache template
+# @author Mark PEREZ
 class Unmustache
   # Extracts the variables from rendered Mustache templates.
   # @param [String] template_file The Mustache template file (not the rendered template)

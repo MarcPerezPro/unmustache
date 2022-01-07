@@ -95,13 +95,14 @@ PLATFORMS
 DEPENDENCIES
   mustache
   pry
-  rake (~> 13.0)
+  rake
   rspec
   rubocop
   rubocop-rake
   rubocop-rspec
   solargraph
   unmustache!
+  yard
 
 BUNDLED WITH
    2.3.4

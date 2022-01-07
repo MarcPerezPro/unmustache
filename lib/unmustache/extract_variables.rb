@@ -2,7 +2,7 @@
 
 require 'cgi'
 
-class Unmustache
+class Unmustache # rubocop:disable Style/Documentation
   attr_reader :extracted_variables
 
   private

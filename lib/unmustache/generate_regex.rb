@@ -2,7 +2,7 @@
 
 require_relative 'logger'
 
-class Unmustache
+class Unmustache # rubocop:disable Style/Documentation
   private
 
   attr_accessor(:regex, :escaped_variables, :unescaped_variables)

@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# This script should be saved in a git repo as a hook file, e.g. .git/hooks/pre-receive.
+# It looks for scripts in the .git/hooks/pre-receive.d directory and executes them in order,
+# passing along stdin. If any script exits with a non-zero status, this script exits.
+
+#if [[ `git status --porcelain` ]]; then
+#  printf "\e[31;1m%s\e[0m\n" 'This script needs to run against committed code only. Please commit or stash you changes.'
+#  exit 1
+#fi
+
+script_dir=$(dirname $0)
+hook_name=$(basename $0)
+
+hook_dir="$script_dir/$hook_name.d"
+
+if [[ -d $hook_dir ]]; then
+
+  for hook in $hook_dir/*; do
+    echo "Running $hook_name/$hook hook"
+    $hook "$@"
+
+    exit_code=$?
+
+    if [ $exit_code != 0 ]; then
+      exit $exit_code
+    fi
+  done
+fi
+
+exit 0

@@ -37,10 +37,12 @@ Gem::Specification.new do |spec|
 
   # Development dependencies
   spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'rubocop-rake'
   spec.add_development_dependency 'rubocop-rspec'
   spec.add_development_dependency 'solargraph'
+  spec.add_development_dependency 'yard'
 
   # Testing dependencies
   spec.add_development_dependency 'mustache'

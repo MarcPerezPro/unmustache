@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Unmustache
+class Unmustache # rubocop:disable Style/Documentation
   attr_writer :logger
 
   private
