@@ -30,10 +30,18 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  # Runtime dependencies
   spec.add_runtime_dependency 'logger'
 
+  # Development dependencies
   spec.add_development_dependency 'pry'
-  spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'rubocop-rake'
+  spec.add_development_dependency 'rubocop-rspec'
   spec.add_development_dependency 'solargraph'
+
+  # Testing dependencies
+  spec.add_development_dependency 'mustache'
+  spec.add_development_dependency 'rspec'
+  spec.metadata['rubygems_mfa_required'] = 'true'
 end
