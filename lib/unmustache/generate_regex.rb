@@ -3,10 +3,9 @@
 require_relative 'logger'
 
 class Unmustache
-  @regex
-  @escaped_variables
-  @unescaped_variables
+  private
 
+  attr_accessor(:regex, :escaped_variables, :unescaped_variables)
 
   def scan_escaped_variables(template_contents)
     # Look for {{ escaped_variable }}
@@ -45,9 +44,7 @@ class Unmustache
     escaped_template = Regexp.escape(template_contents) # In case the template contains regex characters
     escaped_template = replace_mustaches_with_regex_capture_groups(escaped_template)
     regex = Regexp.new(escaped_template)
-
     # puts regex.to_s.sub('(?-mix:', '').chomp(')')
-
     if template_contents.scan(regex).flatten.empty? # Assert that the regex matches itself
       raise RegexpError, 'Error while contructing the unmustache Regex'
     end

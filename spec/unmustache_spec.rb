@@ -9,7 +9,7 @@ describe Unmustache do
       template_contents = '{{first_number}} {{sign}} {{second_number}}'
       rendered_template_contents = '5 &gt; 2'
       variables = unmustache.unmustache(template_contents: template_contents,
-                                             rendered_template_contents: rendered_template_contents)
+                                        rendered_template_contents: rendered_template_contents)
       expect(variables).to be_a(Hash)
       expect(variables).to eq({ first_number: '5', sign: '>', second_number: '2' })
     end
@@ -19,7 +19,7 @@ describe Unmustache do
       template_contents = '{{{first_number}}} {{{sign}}} {{{second_number}}}'
       rendered_template_contents = '5 > 2'
       variables = unmustache.unmustache(template_contents: template_contents,
-                                             rendered_template_contents: rendered_template_contents)
+                                        rendered_template_contents: rendered_template_contents)
       expect(variables).to be_a(Hash)
       expect(variables).to eq({ first_number: '5', sign: '>', second_number: '2' })
     end

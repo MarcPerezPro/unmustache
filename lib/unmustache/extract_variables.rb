@@ -3,7 +3,11 @@
 require 'cgi'
 
 class Unmustache
-  @extracted_variables
+  attr_reader :extracted_variables
+
+  private
+
+  attr_writer :extracted_variables
 
   # Extract the variables from the rendered template
   # @param [String] rendered_template_contents The contents of the RENDERED Mustache template

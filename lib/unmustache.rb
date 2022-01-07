@@ -27,7 +27,7 @@ class Unmustache
 
     if @extracted_variables.empty?
       raise ArgumentError,
-            "The rendered template doesn't match the Mustache template."
+            "The rendered template doesn't match the Mustache template, you should diff it."
     end
 
     @extracted_variables

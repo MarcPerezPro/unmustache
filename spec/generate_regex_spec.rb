@@ -7,7 +7,7 @@ describe Unmustache do
     it 'generates a regex with {{ escaped_mustaches }}' do
       unmustache = described_class.new
       template_content = '{{ name }} {{ lastname }}'
-      regex = unmustache.generate_regex(template_content)
+      regex = unmustache.send(:generate_regex, template_content)
       expect(regex).to be_a(Regexp)
       expect(regex).to eq(Regexp.new('(?<name>.*)\ (?<lastname>.*)'))
     end
@@ -15,7 +15,7 @@ describe Unmustache do
     it 'generates a regex with {{{ unescaped_mustaches }}}' do
       unmustache = described_class.new
       template_content = '{{{ name }}} {{{ lastname }}}'
-      regex = unmustache.generate_regex(template_content)
+      regex = unmustache.send(:generate_regex, template_content)
       expect(regex).to be_a(Regexp)
       expect(regex).to eq(Regexp.new('(?<name>.*)\ (?<lastname>.*)'))
     end

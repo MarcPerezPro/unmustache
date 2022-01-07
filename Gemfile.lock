@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    unmustache (2.0.0)
+    unmustache (2.1.0)
       cgi
       logger
 
